@@ -1,0 +1,112 @@
+/*
+   Fundacion Kinal
+   Centro educativo tecnico laboral Kinal
+   Quinto perito
+   Quinto electronica
+   Codigo Tecnico: EB5AM / EB5AV 
+   Curso: Taller de electronica digital y reparacion de computadoras I
+   Proyecto: Entradas y salidas digitales - Encender y apagar un led con un pulsador
+   Dev: José Pablo Sazo Solares
+   Fecha: 2 de Mayo
+*/
+int velocidad = 500;
+//Funcion donde realizo las configuraciones
+void setup() {
+  Serial.begin(9600);     //Inicio la comunicación serial.
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
+  pinMode(A4, OUTPUT);
+ }
+
+//Funcion donde se ejecutan de manera "infinita" el código.
+void loop() {
+  //Nombre
+  if(digitalRead(2) == HIGH){
+  Serial.println("Jose Pablo Sazo Solares");
+  Serial.println("Practica 4");  
+  delay (9600);
+ }
+  //Auto Fantastico
+  if(digitalRead(3)==HIGH){  //Leo el estado digital del pin 6 al 11.
+   velocidad = 500;
+   for (int contador = 6; contador <= 11; contador++) {
+   digitalWrite(contador, HIGH); // Encender el LED
+   delay(velocidad); // Esperar la velocidad determinada
+   digitalWrite(contador, LOW); // Apagar el LED
+   }
+}
+  if(digitalRead(3)==HIGH){  //Leo el estado digital del pin 11 al 6.
+   velocidad = 500;
+   for (int contador = 11; contador >= 6; contador--) {
+   digitalWrite(contador, HIGH); // Encender el LED
+   delay(velocidad); // Esperar la velocidad determinada
+   digitalWrite(contador, LOW); // Apagar el LED
+   }
+}
+  //Palabra Cuatro Letra C
+  if(digitalRead(4)==HIGH){
+  digitalWrite(A0, HIGH);
+  digitalWrite(13, HIGH);
+  digitalWrite(12, HIGH);
+  digitalWrite(A4, HIGH);
+  digitalWrite(A3, HIGH);  
+}
+  //Letra U
+  if(digitalRead(4)==HIGH){
+  digitalWrite(13, HIGH);
+  digitalWrite(A4, HIGH);
+  digitalWrite(A3, HIGH);
+  digitalWrite(A2, HIGH);
+  digitalWrite(A1, HIGH);
+}
+  //Letra A
+  if(digitalRead(4)==HIGH){
+  digitalWrite(A0, HIGH);
+  digitalWrite(13, HIGH);
+  digitalWrite(A4, HIGH);
+  digitalWrite(12, HIGH);
+  digitalWrite(A1, HIGH);
+  digitalWrite(A2, HIGH);
+} 
+  //Letra T
+  if(digitalRead(4)==HIGH){
+  digitalWrite(13, HIGH);
+  digitalWrite(12, HIGH);
+  digitalWrite(A4, HIGH);
+  digitalWrite(A3, HIGH);
+} 
+  //Letra R
+  if(digitalRead(4)==HIGH){
+  digitalWrite(A0, HIGH);
+  digitalWrite(13, HIGH);
+  digitalWrite(A4, HIGH);
+} 
+  //Letra O
+  if(digitalRead(4)==HIGH){
+  digitalWrite(A0, HIGH);
+  digitalWrite(A1, HIGH);
+  digitalWrite(A2, HIGH);
+  digitalWrite(A3, HIGH);
+  digitalWrite(A4, HIGH); 
+  digitalWrite(13, HIGH);  
+} 
+ //Mensaje
+  if(digitalRead(5) == HIGH){
+  Serial.println("Gracias por su atencion"); 
+  delay (9600);
+ } 
+} 
