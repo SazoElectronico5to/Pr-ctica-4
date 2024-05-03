@@ -1,0 +1,46 @@
+/*
+   Fundacion Kinal
+   Centro Educativo Tecnico Laboral Kinal
+   Quinto Perito
+   Quinto Electronica
+   Codigo Tecnico: EB5AM / EB5AV 
+   Curso: Taller de electronica digital y reparacion de computadoras I
+   Proyecto: Auto Fantastico
+   Dev: José Pablo Sazo Solares
+   Fecha: 2 de Mayo
+*/
+//Funcion donde realizo las configuraciones
+int velocidad = 500;
+
+void setup() {
+  Serial.begin(9600);     
+  Serial.println("Parte 2");
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+}
+
+//Funcion donde se ejecutan de manera "infinita" el código.
+void loop() {
+  if(digitalRead(2)==HIGH){
+   for (int contador = 4; contador <= 9; contador++) {
+   digitalWrite(contador, HIGH);
+   delay(velocidad); 
+   digitalWrite(contador, LOW); 
+   velocidad = 500;
+  }
+}   
+  if(digitalRead(3)==HIGH){
+    for (int contador = 9; contador >= 4; contador--) {
+    digitalWrite(contador, HIGH); 
+    delay(velocidad);
+    digitalWrite(contador, LOW); 
+    velocidad = 250;
+  }
+ }   
+}
