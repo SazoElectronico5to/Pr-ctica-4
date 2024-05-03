@@ -1,0 +1,37 @@
+/*
+   Fundacion Kinal
+   Centro educativo tecnico laboral Kinal
+   Quinto perito
+   Quinto electronica
+   Codigo Tecnico: EB5AM / EB5AV 
+   Curso: Taller de electronica digital y reparacion de computadoras I
+   Proyecto: Entradas y salidas digitales - contador ascedente/descendente
+   Dev: José Pablo Sazo Solares
+   Fecha: 2 de Mayo
+*/
+byte contador = 0;
+//Funcion donde realizo las configuraciones
+void setup() {
+  Serial.begin(9600);     //Inicio la comunicación serial.
+  Serial.println("Contador Ascedente/Descendente");     //Envio el siguiente mensaje al monitor serial.
+  pinMode(2, INPUT);     //Pin 2 del arduino como entrada.
+  pinMode(3, INPUT);     //Pin 3 del arduino como entrada.
+}
+
+//Funcion donde se ejecutan de manera "infinita" el código.
+void loop() {
+  if(digitalRead(2)==HIGH){
+      if(contador < 100){
+      Serial.print("El valor del contador es de: ");
+      delay(500);
+      Serial.println(contador++);
+      }
+    }
+  if(digitalRead(3)==HIGH){
+      if(contador < 100){
+      Serial.print("El valor del contador es de: ");
+      delay(500);
+      Serial.println(contador--);
+      }
+    }
+}
